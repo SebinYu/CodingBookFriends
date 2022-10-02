@@ -55,7 +55,7 @@
 		</form>
 		</nav>
 
-    
+          <a href="create" class="btn btn-info" style="margin: 20px">스터디 만들기</a>		
 
 		<div class = "container" style="margin-top: 80px">
       <h1>${ studygroup.title }</h1>
@@ -66,7 +66,7 @@
       <hr><br>
       <div class="content">${ studygroup.contents }</div>
       <br><br>
-      <div><a href="create" class="btn">스터디 만들기</a></div>
+
 	</div>
 		</div>
 

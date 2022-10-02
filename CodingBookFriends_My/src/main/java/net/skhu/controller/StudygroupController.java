@@ -35,12 +35,14 @@ public class StudygroupController {
     @GetMapping("create")
     public String create(Model model) {
         model.addAttribute("studygroup", new Studygroup());
+        model.addAttribute("learningMaterials", learningMaterialMapper.findAll());
         return "studygroup/edit";
     }
 
     @PostMapping("create")
     public String create(Model model, Studygroup studygroup) {
     	studygroupMapper.insert(studygroup);
+        model.addAttribute("learningMaterials", learningMaterialMapper.findAll());
         return "redirect:list";
     }
 
@@ -49,6 +51,7 @@ public class StudygroupController {
     		@RequestParam(value ="studyGroup_id") BigInteger studyGroup_id) {
     	Studygroup studygroup = studygroupMapper.findOne(studyGroup_id);
         model.addAttribute("studygroup", studygroup);
+        model.addAttribute("learningMaterials", learningMaterialMapper.findAll());
         return "studygroup/edit";
     }
 
@@ -56,6 +59,7 @@ public class StudygroupController {
     public String edit(Model model, Studygroup studygroup) {
     	studygroupMapper.update(studygroup);
     	model.addAttribute("message", "저장했습니다.");
+        model.addAttribute("learningMaterials", learningMaterialMapper.findAll());
         return "redirect:list";
     }
 

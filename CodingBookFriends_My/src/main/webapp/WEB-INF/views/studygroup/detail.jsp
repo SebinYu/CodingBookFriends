@@ -2,21 +2,30 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page session="false"%>
+<c:set var="path" value="${pageContext.request.contextPath}"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css" rel="stylesheet">
-    <title>Coding Book Friends</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<link href="https://getbootstrap.com/docs/5.2/assets/css/docs.css"
+	rel="stylesheet">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="${path}/resources/static/css/detail.css"
+	rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+<title>Coding Study Friends</title>
+<script
+	src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
 </head>
-<body>
-
+<body class="black">
 <nav class="navbar bg-info fixed-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="list" style="color:white; font-weight:bold; margin-left: 10px; font-size:30px">Coding Book Friends</a>
+    <a class="navbar-brand" href="list" style="color:white; font-weight:bold; margin-left: 10px; font-size:30px">Coding Study Friends</a>
     <button class="navbar-toggler" type="button" style="float:right;" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -55,49 +64,28 @@
     </div>
   </div>
 </nav>
+							
 
+          <a href="create" class="btn btn-info" style="margin: 20px">스터디 만들기</a>		
 
+		<div class = "container" style="margin-top: 80px">
+      <h1>${ studygroup.title }</h1>
+      <div>${ studygroup.regDate }</div>
+      <div>신청인원: ${ studygroup.currentNum }/${ studygroup.totalNum }</div>
+              <a href="edit?studyGroup_id=${ studygroup.studyGroup_id }">수정</a>
+              <a href="delete?studyGroup_id=${ studygroup.studyGroup_id }">삭제</a>
+      <hr><br>
+      <div class="content">${ studygroup.contents }</div>
+      <br><br>
 
-		<div class = "banner" style="padding:180px; color:white; background:black; text-align:center;">
-		<p style = "font-size: 100px">Coding Book Friends</p>
-		<a href="create" class="btn btn-info" style="margin: 20px">스터디 만들기</a>		
+	</div>
 		</div>
-		
-		<div class = "container">
 
 
-		<c:forEach var="studygroup" items="${ studygroups }">
-			<div class="col-sm-6" style="clear:both; margin: 20px;">
-				<div class="card" style="width: 18rem;">
-					<div class="card-body">
-						<h5 class="card-title" style = "color:black">
-							<a href="detail?studyGroup_id=${ studygroup.studyGroup_id }" style="color:#0B4C5F ">${ studygroup.title }</a>
-						</h5>
-						<p class="card-text">
-							BY. ${ studygroup.leader }<br> 정원. ${ studygroup.currentNum }/${ studygroup.totalNum }
-						</p>
-
-						<p class="card-text">${ studygroup.contents }</p>
-					</div>
-				</div>
-			</div>
-		</c:forEach>
 	
 	</div>
+	</div>
 
-
-<script>
-(function mainScript() {
-	  "use strict";
-	  const offcanvasToggle = document.querySelector(
-	    '[data-bs-toggle="offcanvas"]',
-	  );
-	  const offcanvasCollapse = document.querySelector(".offcanvas-collapse");
-	  offcanvasToggle.addEventListener("click", function () {
-	    offcanvasCollapse.classList.toggle("open");
-	  });
-	})();
-</script>
 
 	<!-- 부트스트랩 : JS 설정  -->
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
