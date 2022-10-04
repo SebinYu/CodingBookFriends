@@ -120,7 +120,7 @@
 					</select></td>
 				<tr>
 				<tr>
-					<td>스터디 방식</td>
+					<td>스터디 진행방식 </td>
 					<td><select name="learningMaterial_id" required>
 					<option value="" selected disabled hidden>--자료선택--</option>
 							<c:forEach var="d" items="${ learningMaterials }">
