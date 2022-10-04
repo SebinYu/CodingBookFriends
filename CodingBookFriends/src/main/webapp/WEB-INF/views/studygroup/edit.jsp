@@ -119,6 +119,17 @@
 							</c:forEach>
 					</select></td>
 				<tr>
+				<tr>
+					<td>스터디 방식</td>
+					<td><select name="learningMaterial_id" required>
+					<option value="" selected disabled hidden>--자료선택--</option>
+							<c:forEach var="d" items="${ learningMaterials }">
+								<option value="${ d.learningMaterial_id }"
+									${ learningMaterial.learningMaterial_id == d.learningMaterial_id ? "selected" : "" }>
+									${ d.materialType }</option>
+							</c:forEach>
+					</select></td>
+				<tr>
 					<td>스터디 기간</td>
 
 					<td><table border="1">
