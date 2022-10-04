@@ -64,6 +64,6 @@ public class Studygroup {
 		this.regDate = regDate;
 	}
 
-	
-	
+
+
 }

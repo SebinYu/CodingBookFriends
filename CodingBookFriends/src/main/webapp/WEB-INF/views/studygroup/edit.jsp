@@ -91,26 +91,27 @@
 				<tr>
 					<td>스터디명</td>
 					<td><input type="text" name="title"
-						value="${ studygroup.title }" /></td>
+						value="${ studygroup.title }" required/></td>
 				</tr>
 				<tr>
 					<td>상세설명</td>
 					<td><input type="text" name="contents"
-						value="${ studygroup.contents }" /></td>
+						value="${ studygroup.contents }" required/></td>
 				</tr>
 				<tr>
 					<td>스터디 리더 닉네임</td>
 					<td><input type="text" name="leader"
-						value="${ studygroup.leader }" /></td>
+						value="${ studygroup.leader }" required/></td>
 				</tr>
 				<tr>
 					<td>최대 모집인원</td>
-					<td><input type="number" name="totalNum"
-						value="${ studygroup.totalNum }" /></td>
+					<td><input type="number"  name="totalNum"  min="1"
+						value="${ studygroup.totalNum }" required /></td>
 				</tr>
 				<tr>
-					<td>사용자료</td>
-					<td><select name="learningMaterial_id">
+					<td>스터디 사용자료</td>
+					<td><select name="learningMaterial_id" required>
+					<option value="" selected disabled hidden>--자료선택--</option>
 							<c:forEach var="d" items="${ learningMaterials }">
 								<option value="${ d.learningMaterial_id }"
 									${ learningMaterial.learningMaterial_id == d.learningMaterial_id ? "selected" : "" }>
@@ -122,7 +123,7 @@
 
 					<td><table border="1">
 							<tr>
-								<td><input type="date"> ~ <input type="date"></td>
+								<td><input type="date" required> ~ <input type="date" required></td>
 							</tr>
 						</table></td>
 				</tr>
